@@ -1,0 +1,223 @@
+/* ====== Базові налаштування ====== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #e4b7c4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ====== Шапка ====== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background-color: #e4b7c4;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: inline-block;
+    width: 25px;
+    height: 3px;
+    background-color: #a1568a;
+    position: relative;
+}
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #a1568a;
+    left: 0;
+    transition: all 0.3s;
+}
+.menu-icon::before {
+    top: -8px;
+}
+.menu-icon::after {
+    top: 8px;
+}
+
+/* ====== Вступний блок ====== */
+.intro {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #a1568a;
+}
+.intro h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ====== Секція послуг ====== */
+.services {
+    background: linear-gradient(to bottom, #e4b7c4 50%, #6c4b8a 50%);
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* ====== Картки ====== */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 320px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.card p {
+    padding: 0 1.2rem;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.learn-more {
+    display: inline-block;
+    color: #a1568a;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 1.2rem;
+    transition: color 0.3s;
+}
+.learn-more:hover {
+    color: #6c4b8a;
+}
+
+/* ====== Підвал ====== */
+.footer {
+    background-color: #333;
+    color: #eee;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+}
+
+/* ====== Адаптивна верстка ====== */
+@media (min-width: 768px) {
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .services {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem;
+        background: linear-gradient(to bottom, #e4b7c4 40%, #6c4b8a 40%);
+    }
+
+    .card {
+        max-width: 280px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .intro h1 {
+        font-size: 3rem;
+    }
+
+    .card {
+        max-width: 300px;
+    }
+}
+/* ====== Бокове меню ====== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 250px;
+    height: 100vh;
+    background-color: #6c4b8a;
+    color: #fff;
+    padding: 2rem 1rem;
+    box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+    transition: right 0.4s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.sidebar .close-btn:hover {
+    color: #e4b7c4;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 4rem;
+}
+
+.sidebar ul li {
+    margin: 1.2rem 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #e4b7c4;
+}
+
+/* При відкритті меню — блокування прокрутки сторінки */
+body.menu-open {
+    overflow: hidden;
+}
+
